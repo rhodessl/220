@@ -1,27 +1,53 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Shelby Rhodes
+lab5.py
 """
 
 from graphics import *
-
-
-def target():
-    win_width = 500
-    win_height = 500
-    win = GraphWin("Archery Target", win_width, win_height)
-
-    # Add code here to get the dimensions and draw the target
-
-    # Wait for another click to exit
-    win.getMouse()
-    win.close()
+import math
 
 
 def triangle():
     win_width = 500
     win_height = 500
     win = GraphWin("Draw a Triangle", win_width, win_height)
+
+    p1 = win.getMouse()
+    p1.draw(win)
+    p2 = win.getMouse()
+    p2.draw(win)
+    p3 = win.getMouse()
+    p3.draw(win)
+
+    x1 = p1.getX()
+    x2 = p2.getX()
+    x3 = p3.getX()
+    y1 = p1.getY()
+    y2 = p2.getY()
+    y3 = p3.getY()
+
+    triangle = Polygon(p1, p2, p3)
+    triangle.draw(win)
+
+    dx1 = x2 - x1
+    dx2 = x1 - x3
+    dx3 = x3 - x2
+    dy1 = y2 - y1
+    dy2 = y1 - y3
+    dy3 = y3 - y2
+    a = math.sqrt(dx1 ** 2 + dy1 ** 2)
+    b = math.sqrt(dx2 ** 2 + dy2 ** 2)
+    c = math.sqrt(dx3 ** 2 + dy3 ** 2)
+
+    perimeter = a + b + c
+    s = perimeter / 2
+    area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+    area_txt = Text(Point(50, 20), "The area is " + str(area))
+    perimeter_txt = Text(Point(70, 30), "The perimeter is " + str(perimeter))
+    area_txt.draw(win)
+    perimeter_txt.draw(win)
+
 
     # Add code here to accept the mouse clicks, draw the triangle.
     # and display its area in the graphics window.
@@ -71,15 +97,77 @@ def color_shape():
     green_text.draw(win)
     blue_text.draw(win)
 
+    red_box = Entry(Point(win_width / 2, win_height / 2 + 40), 5)
+    green_box = Entry(Point(win_width / 2, win_height / 2 + 70), 5)
+    blue_box = Entry(Point(win_width / 2, win_height / 2 + 100), 5)
+    red_box.draw(win)
+    green_box.draw(win)
+    blue_box.draw(win)
+
+    for _ in range(5):
+        win.getMouse()
+        red = int(red_box.getText())
+        green = int(green_box.getText())
+        blue = int(blue_box.getText())
+        color = color_rgb(red, green, blue)
+        shape.setFill(color)
+
+    inst.undraw()
+    inst.setText("Click to close")
+    inst.draw(win)
     # Wait for another click to exit
     win.getMouse()
     win.close()
 
+def process_string():
+    s = input("Enter a string ")
+    print(s[0])
+    print(s[-1])
+    print(s[2:6])
+    print(s[0] + s[-1])
+    print(s[:3] * 10)
+    for i in range(len(s)):
+        print(s[i])
+    print(len(s))
+
+def process_list():
+    pt = Point(5, 10)
+    values = [5, "hi", 2.5, "there", pt, "7.2"]
+    x = values[1] + values[3]
+    print(x)
+    x =(values[0] + values[2])
+    print(x)
+    x = values[1] * 5
+    print(x)
+    x = values[2:5]
+    print(x)
+    x = values[2:4] + [values[0]]
+    print(x)
+    x = [values[2], values[0], float(values[5])]
+    print(x)
+    x = values[0] + values[2] + float(values[5])
+    print(x)
+    x = len(values)
+    print(x)
+
+def another_series():
+    n = eval(input("What is the number of terms "))
+    acc = 0
+    for i in range(n):
+        y = 2 + 2 * (i % 3)
+        print(y, end=" ")
+        acc = acc + y
+    print()
+    print("Sum =", acc)
+
+
 
 def main():
-    # target()
-    # triangle()
-    # color_shape()
+    triangle()
+    color_shape()
+    process_string()
+    process_list()
+    another_series()
     pass
 
 
