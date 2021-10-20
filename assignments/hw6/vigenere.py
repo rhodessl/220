@@ -56,16 +56,17 @@ def main():
     resulting_txt = Text(Point(300, 200), "Resulting Message")
     resulting_txt.draw(win)
 
-    message = input(msg_box.getText())
-    keyword = input(key_box.getText())
+    message = msg_box.getText()
+    keyword = key_box.getText()
 
     resulting_msg = code(message, keyword)
 
     new_message = Text(Point(300, 225), resulting_msg)
     new_message.draw(win)
 
-    inst_pt = Point(width / 2, 200)
+    inst_pt = Point(width / 2, 300)
     inst_txt = Text(inst_pt, "Click to close")
+    inst_txt.draw(win)
 
     win.getMouse()
     win.close()
@@ -73,3 +74,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
