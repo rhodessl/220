@@ -2,7 +2,7 @@
 Name: Shelby Rhodes
 weighted_average.py
 
-Problem: Compute averages and write them to a file
+Problem: compute averages and write them to a file
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
