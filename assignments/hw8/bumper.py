@@ -34,21 +34,21 @@ def main():
     circle2.setFill("green")
     circle2.draw(win)
 
-    while circle1.getCenter().getX() < width and circle2.getCenter().getX() < width:
+    while circle1.getCenter().getX() + radius < width and circle2.getCenter().getX() + radius < width:
         circle1.move(move_amounta, move_amountb)
         circle2.move(move_amountc, move_amountd)
 
-    while circle1.getCenter().getY() < height and circle2.getCenter().getY() < height:
-        circle1.move(move_amounta, move_amountb)
-        circle2.move(move_amountc, move_amountd)
-
-    while circle1.getCenter().getX() == width and circle2.getCenter().getX() == width:
-        circle1.move(-move_amounta, -move_amountb)
-        circle2.move(-move_amountc, -move_amountd)
-
-    while circle1.getCenter().getY() == height and circle2.getCenter().getY() == height:
-        circle1.move(-move_amounta, -move_amountb)
-        circle2.move(-move_amountc, -move_amountd)
+    # while circle1.getCenter().getY() + radius < height and circle2.getCenter().getY() + radius < height:
+    #     circle1.move(move_amounta, move_amountb)
+    #     circle2.move(move_amountc, move_amountd)
+    #
+    # while circle1.getCenter().getX() + radius == width and circle2.getCenter().getX() + radius == width:
+    #     circle1.move(-move_amounta, -move_amountb)
+    #     circle2.move(-move_amountc, -move_amountd)
+    #
+    # while circle1.getCenter().getY() + radius == height and circle2.getCenter().getY() + radius == height:
+    #     circle1.move(-move_amounta, -move_amountb)
+    #     circle2.move(-move_amountc, -move_amountd)
 
     win.getMouse()
     win.close()
