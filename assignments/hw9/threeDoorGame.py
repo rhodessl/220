@@ -26,11 +26,11 @@ def main():
     p5 = Point(300, y)
     p6 = Point(370, y+50)
 
-    button1 = Rectangle(p1, p2)
+    button1 = Button(Rectangle(p1, p2), "Door1")
     button1.draw(win)
-    button2 = Rectangle(p3, p4)
+    button2 = Button(Rectangle(p3, p4), "Door2")
     button2.draw(win)
-    button3 = Rectangle(p5, p6)
+    button3 = Button(Rectangle(p5, p6), "Door3")
     button3.draw(win)
 
     top_text = Text(Point(width/2, height/4), "I have a secret door")

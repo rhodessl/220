@@ -8,15 +8,16 @@ Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 """
 
+
 class Button:
     def __init__(self, shape, label):
         self.shape = shape
-        self.label = label
+        self.text = label
 
     def get_label(self, label):
-        return self.label
+        return self.text
 
-    # def draw(self, win, shape, label):
+    # def draw(self, win):
     #     shape.draw(win)
     #     label.draw(win)
 
